@@ -1,6 +1,7 @@
 .venv/
 .pytest_cache/
 tests/__pycache__/
+pages/__pycache__/
 
 #Allure
 allure-results/

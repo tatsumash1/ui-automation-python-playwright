@@ -28,8 +28,11 @@ ui-automation-python-playwright/
     requirements.txt
     pages/
     tests/
+        test_login.py
     test_data/
     docs/
+    pytest.ini
+    .gitignore
 ```
 
 ## Установка зависимостей
