@@ -27,7 +27,10 @@ ui-automation-python-playwright/
     README.md
     requirements.txt
     pages/
+        inventory_page.py
+        login_page.py
     tests/
+        test_inventory.py
         test_login.py
     test_data/
     docs/
