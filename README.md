@@ -34,11 +34,13 @@ ui-automation-python-playwright/
         test_login.py
         test_inventory.py
         test_cart.py
-    test_data/
     docs/
         test-plan.md
         checklist.md
         test-cases.md
+        bug-reports.md
+        test-report.md
+    screenshots/
     pytest.ini
     .gitignore
 ```

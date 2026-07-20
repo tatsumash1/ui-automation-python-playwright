@@ -6,7 +6,7 @@ def test_add_items_to_cart(page):
     inventory_page = InventoryPage(page)
 
     login_page.open()
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login("problem_user", "secret_sauce")
 
     # Добавляем товары в корзину
     inventory_page.add_sauce_labs_backpack()
@@ -22,7 +22,7 @@ def test_remove_item_from_cart(page):
     inventory_page = InventoryPage(page)
 
     login_page.open()
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login("problem_user", "secret_sauce")
 
     # Добавляем товар в корзину
     inventory_page.add_sauce_labs_backpack()
@@ -38,7 +38,7 @@ def test_sorting_products_lohi(page):
     inventory_page = InventoryPage(page)
 
     login_page.open()
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login("problem_user", "secret_sauce")
 
     # Сортировка по цене (от низкой к высокой)
     inventory_page.sort_by("lohi")
@@ -54,7 +54,7 @@ def test_sorting_products_hilo(page):
     inventory_page = InventoryPage(page)
 
     login_page.open()
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login("problem_user", "secret_sauce")
     # Сортировка по цене (от высокой к низкой)
     inventory_page.sort_by("hilo")
     # Проверяем, что выбранная сортировка соответствует ожидаемой
@@ -69,7 +69,7 @@ def test_sorting_products_name_az(page):
     inventory_page = InventoryPage(page)
 
     login_page.open()
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login("problem_user", "secret_sauce")
     # Сортировка по имени (от A до Z)
     inventory_page.sort_by("az")
     # Проверяем, что выбранная сортировка соответствует ожидаемой
@@ -84,7 +84,7 @@ def test_sorting_products_name_za(page):
     inventory_page = InventoryPage(page)
 
     login_page.open()
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login("problem_user", "secret_sauce")
     # Сортировка по имени (от Z до A)
     inventory_page.sort_by("za")
     # Проверяем, что выбранная сортировка соответствует ожидаемой
