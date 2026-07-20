@@ -27,13 +27,18 @@ ui-automation-python-playwright/
     README.md
     requirements.txt
     pages/
-        inventory_page.py
         login_page.py
+        inventory_page.py
+        cart_page.py
     tests/
-        test_inventory.py
         test_login.py
+        test_inventory.py
+        test_cart.py
     test_data/
     docs/
+        test-plan.md
+        checklist.md
+        test-cases.md
     pytest.ini
     .gitignore
 ```
