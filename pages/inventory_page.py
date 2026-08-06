@@ -11,6 +11,7 @@ class InventoryPage:
         self.add_to_cart_sauce_labs_backpack_button = page.locator("[data-test='add-to-cart-sauce-labs-backpack']")
         self.remove_sauce_labs_backpack_button = page.locator("[data-test='remove-sauce-labs-backpack']")
         self.add_to_cart_sauce_labs_bike_light_button = page.locator("[data-test='add-to-cart-sauce-labs-bike-light']")
+        self.cart_button = page.locator("[data-test='shopping-cart-link']")
 
     def add_sauce_labs_backpack(self):
         self.add_to_cart_sauce_labs_backpack_button.click()
@@ -39,3 +40,6 @@ class InventoryPage:
     
     def should_have_selected_sorting(self, value: str):
         expect(self.sort_dropdown).to_have_value(value)
+
+    def open_cart(self):
+        self.cart_button.click()
