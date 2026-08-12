@@ -2,9 +2,18 @@ import pytest
 
 #Логин
 @pytest.fixture(scope="function")
-def logged_in_page(page):
+def logged_in_page_valid(page):
     page.goto("https://saucedemo.com/")
     page.locator("#username").fill("standard_user")
+    page.locator("#password").fill("secret_sauce")
+    page.locator("#login-button").click()
+
+    return page
+
+@pytest.fixture(scope="function")
+def logged_in_page_invalid(page):
+    page.goto("https://saucedemo.com/")
+    page.locator("#username").fill("problem_user")
     page.locator("#password").fill("secret_sauce")
     page.locator("#login-button").click()
 
