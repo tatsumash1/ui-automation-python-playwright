@@ -19,6 +19,15 @@ def logged_in_page_invalid(page):
 
     return page
 
+@pytest.fixture(scope="function")
+def logged_in_page_blocked(page):
+    page.goto("https://saucedemo.com/")
+    page.locator("#username").fill("locked_out_user")
+    page.locator("#password").fill("secret_sauce")
+    page.locator("#login-button").click()
+
+    return page
+
 # Переход на страницу продуктов (связанная с фикстурой logged_in_page)
 @pytest.fixture(scope="function")
 def products_page(logged_in_page):
