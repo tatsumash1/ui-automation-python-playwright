@@ -1,7 +1,7 @@
 # ui-automation-python-playwright
 Проект по автоматизации UI-тестирования с использованием Python, pytest и Playwright.
 
-# UI Automation Testing with Python and Playwright
+## UI Automation Testing with Python and Playwright
 
 Этот репозиторий содержит учебный проект по автоматизации UI-тестирования сайта Sauce Demo.
 
@@ -20,8 +20,8 @@
 - Page Object Model
 - Allure Report
 
-
 ## Структура проекта
+
 ```text
 ui-automation-python-playwright/
     README.md
@@ -50,6 +50,7 @@ ui-automation-python-playwright/
 ```text 
 pip install -r requirements.txt
 ```
+
 ## Установка браузеров Playwright
 
 ```text

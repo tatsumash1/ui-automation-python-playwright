@@ -1,7 +1,6 @@
 from playwright.sync_api import expect
 from pages.inventory_page import InventoryPage
 from pages.cart_page import CartPage
-from pages.login_page import LoginPage
 
 def test_add_to_cart_and_checkout(products_page):
     inventory_page = InventoryPage(products_page)

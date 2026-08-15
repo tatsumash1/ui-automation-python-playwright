@@ -1,5 +1,4 @@
 from pages.inventory_page import InventoryPage
-from pages.login_page import LoginPage
 
 def test_add_items_to_cart(logged_in_page_invalid):
     inventory_page = InventoryPage(logged_in_page_invalid)
