@@ -42,12 +42,13 @@ ui-automation-python-playwright/
         test-report.md
     screenshots/
     pytest.ini
+    confest.py
     .gitignore
 ```
 
 ## Установка зависимостей
 
-```text 
+```text
 pip install -r requirements.txt
 ```
 

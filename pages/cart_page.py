@@ -6,6 +6,7 @@ class CartPage:
         self.checkout_button_selector = "[data-test='checkout']"
         self.continue_shopping_button_selector = "[data-test='continue-shopping']"
         self.burger_menu_button_selector = page.locator("#react-burger-menu-btn")
+        self.close_burger_menu_button_selector = page.locator("#react-burger-cross-btn")
         self.cart_button_selector = page.locator("[data-test='shopping-cart-link']")
 
     def remove_sauce_labs_backpack(self):
@@ -18,7 +19,10 @@ class CartPage:
         self.page.locator(self.continue_shopping_button_selector).click()
     
     def click_burger_menu(self):
-        self.burger_menu_button_selector.click()
+        if self.close_burger_menu_button_selector.is_visible():
+            self.close_burger_menu_button_selector.click()
+        else:
+            self.burger_menu_button_selector.click()
 
     def click_cart_button(self):
         self.cart_button_selector.click()

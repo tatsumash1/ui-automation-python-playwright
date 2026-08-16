@@ -1,57 +1,50 @@
 import pytest
 
-#Логин
-@pytest.fixture(scope="function")
-def logged_in_page_valid(page):
-    page.goto("https://saucedemo.com/")
-    page.locator("#username").fill("standard_user")
-    page.locator("#password").fill("secret_sauce")
+
+BASE_URL = "https://www.saucedemo.com/"
+PASSWORD = "secret_sauce"
+
+
+def login(page, username, password=PASSWORD):
+    page.goto(BASE_URL)
+    page.locator("#user-name").fill(username)
+    page.locator("#password").fill(password)
     page.locator("#login-button").click()
 
+
+@pytest.fixture(scope="function")
+def logged_in_page_valid(page):
+    login(page, "standard_user")
     return page
+
 
 @pytest.fixture(scope="function")
 def logged_in_page_invalid(page):
-    page.goto("https://saucedemo.com/")
-    page.locator("#username").fill("problem_user")
-    page.locator("#password").fill("secret_sauce")
-    page.locator("#login-button").click()
-
+    login(page, "invalid_user", "invalid_password")
     return page
+
 
 @pytest.fixture(scope="function")
 def logged_in_page_blocked(page):
-    page.goto("https://saucedemo.com/")
-    page.locator("#username").fill("locked_out_user")
-    page.locator("#password").fill("secret_sauce")
-    page.locator("#login-button").click()
-
+    login(page, "locked_out_user")
     return page
 
-# Переход на страницу продуктов (связанная с фикстурой logged_in_page)
+
 @pytest.fixture(scope="function")
-def products_page(logged_in_page):
-    page = logged_in_page
-
+def products_page(logged_in_page_valid):
+    page = logged_in_page_valid
     assert page.locator(".inventory_list").is_visible(), "PRODUCTS PAGE NOT VISIBLE"
-
     return page
 
-#Очистка корзины (связанная с фикстурой products_page)
+
 @pytest.fixture
 def clean_cart(products_page):
-
     page = products_page
+    page.locator("[data-test='add-to-cart-sauce-labs-backpack']").click()
+    assert page.locator("[data-test='shopping-cart-badge']").text_content() == "1", "CART IS NOT UPDATED"
 
-    page.locator(".add-to-cart-sauce-labs-backpack").click()
-
-    assert page.locator(".shopping_cart_badge") .text_content() == "1", "CART IS NOT UPDATED"
-
-    yield products_page
+    yield page
 
     remove_buttons = page.locator('[data-test^="remove-"]')
-
-    for i in range(remove_buttons.count()):
+    for _ in range(remove_buttons.count()):
         remove_buttons.nth(0).click()
-
-        
