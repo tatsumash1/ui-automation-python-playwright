@@ -62,3 +62,13 @@ playwright install
 
 Показать умение создавать простые, понятные и поддерживаемые UI-автотесты для веб-приложения.
 В проекте будут использоваться автоматические проверки UI-сценариев, тестовые данные, Page Object Model и базовая тестовая документация.
+
+## Запуск тестов
+
+```text
+pytest
+pytest --headed
+pytest --alluredir=reports/allure-results
+allure generate reports/allure-results -o reports/allure-report --clean
+allure open reports/allure-report
+```
