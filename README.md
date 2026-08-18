@@ -65,10 +65,19 @@ playwright install
 
 ## Запуск тестов
 
-```text
+```shell
+# Запуск теста
 pytest
+
+# Запуск тестов с использованием headless браузера
 pytest --headed
+
+# Указание директории для хранения результатов Allure
 pytest --alluredir=reports/allure-results
+
+# Генерация отчета Allure из результатов тестов
 allure generate reports/allure-results -o reports/allure-report --clean
+
+# Открытие сгенерированного отчета Allure в браузере
 allure open reports/allure-report
 ```
