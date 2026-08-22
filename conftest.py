@@ -37,7 +37,7 @@ def products_page(logged_in_page_valid):
     return page
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def clean_cart(products_page):
     page = products_page
     page.locator("[data-test='add-to-cart-sauce-labs-backpack']").click()
@@ -48,3 +48,17 @@ def clean_cart(products_page):
     remove_buttons = page.locator('[data-test^="remove-"]')
     for _ in range(remove_buttons.count()):
         remove_buttons.nth(0).click()
+
+def information_input(page):
+    page.locator("[data-test='firstName']").fill("John")
+    page.locator("[data-test='lastName']").fill("Doe")
+    page.locator("[data-test='postalCode']").fill("12345")
+
+@pytest.fixture(scope="function")
+def checkout_step_one(products_page):
+    page = products_page
+    page.locator("[data-test='add-to-cart-sauce-labs-backpack']").click()
+    page.locator("[data-test='shopping-cart-link']").click()
+    page.locator("[data-test='checkout']").click()
+    information_input(page)
+    return page
