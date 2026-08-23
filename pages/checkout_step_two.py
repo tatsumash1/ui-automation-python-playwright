@@ -1,4 +1,7 @@
 from playwright.sync_api import expect
+import re
+
+
 class Checkout_step_two:
     def __init__(self, page):
         self.page = page
@@ -10,14 +13,14 @@ class Checkout_step_two:
         self.total_price = page.locator("#total_label")
     
     def click_finish(self):
-        self.finish_button.click
+        self.finish_button.click()
     
     def click_cancel(self):
-        self.cancel_button.click
+        self.cancel_button.click()
 
     def inventory_item_click(self):
         self.inventory_item_name.click()
-        expected_url = "https://www.saucedemo.com/inventory-item.html?id=\d+"
+        expected_url = re.compile(r"https://www\.saucedemo\.com/inventory-item\.html\?id=\d+")
         expect(self.page).to_have_url(expected_url)
 
     def check_total_price(self, expected_total):

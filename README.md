@@ -7,7 +7,7 @@
 ## Тестируемый сайт
 
 - Сайт: Sauce Demo
-- URL: https://www.saucedemo.com/
+- URL: `https://www.saucedemo.com/`
 
 ## Стек технологий
 
@@ -276,4 +276,3 @@ pytest -x
 ```shell
 pytest --lf
 ```
-
