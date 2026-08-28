@@ -12,10 +12,18 @@ PRODUCTS_DATA=[
     {"name": "Test.allTheTheThings() T-Shirt (Red)", "price": "15.99"}
 ]
 
-@pytest.mark.parametrize("product", PRODUCTS_DATA, ids=lambda product: product["name"])
-def test_product_card(logged_in_page_valid, product: dict[str, str]):
+@pytest.mark.parametrize(
+        "product", 
+        PRODUCTS_DATA, 
+        ids=lambda product: product["name"]
+)
+def test_product_card(logged_in_page_valid, product):
     product_page = ProductPage(logged_in_page_valid)
-    actual_price = product_page.get_product_price(product["name"]).strip("$")
+
+    actual_price = product_page.get_product_price(
+        product["name"]
+    ).strip("$")
+
     assert actual_price == product["price"], f"Ожидаемая цена {product['price']}, фактическая {actual_price}"
 
     product_page.add_to_cart(product["name"])
