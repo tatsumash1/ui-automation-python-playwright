@@ -33,3 +33,21 @@ def test_product_card(logged_in_page_valid, product):
     product_page.remove_from_cart(product["name"])
 
     expect(product_page.cart_badge).to_be_hidden()
+
+@pytest.mark.parametrize(
+        "product", 
+        PRODUCTS_DATA, 
+        ids=lambda product: product["name"]
+)
+def test_name_click(logged_in_page_valid, product):
+
+    product_page = ProductPage(logged_in_page_valid)
+
+    product_page.open_product_details(product["name"])
+
+    product_detail = product_page.page.locator(".inventory_details_name")
+
+    expect(product_detail).to_have_text(product["name"])
+
+    #expect(product_page.page.get_by_text(product["name"])).to_be_visible()
+
