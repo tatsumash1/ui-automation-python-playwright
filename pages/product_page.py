@@ -9,9 +9,13 @@ class ProductPage:
 
     def get_product_container(self, product_name: str)-> Locator: 
         """Фильтрация картрочек по нужному имени"""
-        return self.inventory_items.filter(
-            has = self.page.get_by_text(product_name, exact=True)
-        )
+        container = self.inventory_items.filter(has_text=product_name)
+
+        print("Product: ", product_name)
+        print("Count: ", container.count())
+
+        return container
+
 
     def open_product_details(self, product_name: str):
         """Открытие карточки товара путем нажатия на название"""
