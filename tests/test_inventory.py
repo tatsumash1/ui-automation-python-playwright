@@ -1,5 +1,10 @@
 from pages.inventory_page import InventoryPage
 
+def test_inventory_page(products_page):
+    inventory_page = InventoryPage(products_page)
+    # Проверяем, что мы находимся на странице инвентаря
+    inventory_page.should_be_inventory_page()
+
 def test_add_items_to_cart(products_page):
     inventory_page = InventoryPage(products_page)
 

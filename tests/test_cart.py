@@ -61,3 +61,8 @@ def test_burger_menu_navigation(products_page):
 
     # Проверяем, что меню закрыто
     expect(products_page.locator(".bm-menu-wrap")).not_to_be_visible()
+
+def test_cart_badge_visibility(products_page):
+    inventory_page = InventoryPage(products_page)
+    # Проверяем, что значок корзины виден
+    expect(inventory_page.cart_badge).to_be_visible()

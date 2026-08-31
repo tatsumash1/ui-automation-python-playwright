@@ -62,3 +62,9 @@ def checkout_step_one(products_page):
     page.locator("[data-test='checkout']").click()
     information_input(page)
     return page
+
+@pytest.fixture(scope="function")
+def checkout_step_two(checkout_step_one):
+    page = checkout_step_one
+    page.locator("#continue").click()
+    return page
