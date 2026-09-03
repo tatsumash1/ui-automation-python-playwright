@@ -47,3 +47,7 @@ class InventoryPage:
     def should_be_inventory_page(self):
         expect(self.page).to_have_url("https://www.saucedemo.com/inventory.html")
         expect(self.inventory_items).to_be_visible()
+
+    def click_burger_menu(self):
+        burger_menu_button = self.page.locator("#react-burger-menu-btn")
+        burger_menu_button.click()
