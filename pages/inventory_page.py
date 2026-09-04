@@ -51,3 +51,7 @@ class InventoryPage:
     def click_burger_menu(self):
         burger_menu_button = self.page.locator("#react-burger-menu-btn")
         burger_menu_button.click()
+
+    def click_logout_button(self):
+        logout_button = self.page.locator("#logout_sidebar_link")
+        logout_button.click()
