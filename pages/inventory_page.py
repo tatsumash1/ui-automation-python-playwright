@@ -52,6 +52,10 @@ class InventoryPage:
         burger_menu_button = self.page.locator("#react-burger-menu-btn")
         burger_menu_button.click()
 
+    def click_all_items_button(self):
+        all_items_button = self.page.locator("#inventory_sidebar_link")
+        all_items_button.click()
+
     def click_logout_button(self):
         logout_button = self.page.locator("#logout_sidebar_link")
         logout_button.click()
@@ -59,3 +63,7 @@ class InventoryPage:
     def click_about_button(self):
         about_button = self.page.locator("#about_sidebar_link")
         about_button.click()
+
+    def click_reset_app_state_button(self):
+        reset_app_state_button = self.page.locator("#reset_sidebar_link")
+        reset_app_state_button.click()
