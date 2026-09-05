@@ -55,3 +55,7 @@ class InventoryPage:
     def click_logout_button(self):
         logout_button = self.page.locator("#logout_sidebar_link")
         logout_button.click()
+
+    def click_about_button(self):
+        about_button = self.page.locator("#about_sidebar_link")
+        about_button.click()
