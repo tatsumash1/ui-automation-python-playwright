@@ -102,3 +102,25 @@ def test_burger_menu_navigation_all_items(products_page):
     # Проверяем, что мы находимся на странице инвентаря
     inventory_page.should_be_inventory_page()
 
+def test_burger_menu_navigation_about(products_page):
+    inventory_page = InventoryPage(products_page)
+    # Кликаем на кнопку бургер-меню
+    inventory_page.click_burger_menu()
+    # Кликаем на кнопку "About"
+    inventory_page.click_about_button()
+    # Проверяем, что мы перешли на страницу About
+    expect(products_page.locator(".about-container")).to_be_visible()
+
+def test_burger_menu_navigation_reset_app_state(products_page):
+    inventory_page = InventoryPage(products_page)
+    # Добавляем товар в корзину
+    inventory_page.add_sauce_labs_backpack()
+    # Проверяем, что количество товаров в корзине равно 1
+    inventory_page.should_have_cart_count("1")
+    # Кликаем на кнопку бургер-меню
+    inventory_page.click_burger_menu()
+    # Кликаем на кнопку "Reset App State"
+    inventory_page.click_reset_app_state_button()
+    # Проверяем, что количество товаров в корзине равно 0
+    inventory_page.should_have_cart_count("0")
+
